@@ -1,0 +1,26 @@
+{
+  "name": "Capital_Gains",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app/index.js",
+    "test": "mocha './test/*.spec.js'",
+    "coverage": "nyc npm run test"
+  },
+  "mocha": {
+    "watch": false
+  },
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "axios": "^0.27.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "nyc": "^15.1.0",
+    "test-console": "2.0.0"
+  }
+}
