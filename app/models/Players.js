@@ -27,7 +27,7 @@ class Players {
               this.matches = 0;
            
             playersArray1.forEach(playerA => {
-              playersArray2.forEach(playerB => this.evalAndPrint(playerA,playerB,this.expectedSum))
+              playersArray2.forEach(playerB => this.evalAndPrint(playerA,playerB))
               playersArray2.shift();
             });
 
@@ -44,9 +44,9 @@ class Players {
      /**
      * Evaluate a Print Pairs in console
      */
-    evalAndPrint(playerA,playerB,sum) {
+    evalAndPrint(playerA,playerB) {
 
-        if(((parseInt(playerA.h_in) + parseInt(playerB.h_in)) === sum)&&((playerA.first_name !== playerB.first_name)&& (playerA.last_name !== playerB.last_name))){
+        if(((parseInt(playerA.h_in) + parseInt(playerB.h_in)) === this.expectedSum)&&((playerA.first_name !== playerB.first_name)&& (playerA.last_name !== playerB.last_name))){
           console.log("- "+playerA.first_name+" "+playerA.last_name+"\t\t\t"+playerB.first_name+" "+playerB.last_name);
           this.matches++;
         }

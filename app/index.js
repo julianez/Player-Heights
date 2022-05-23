@@ -18,12 +18,11 @@ const consoleInput = readline.createInterface({
     output: process.stdout,
   });
   
-consoleInput.on('line', userInput => { 
-  
+consoleInput.on('line', userInput => {
+
+  console.log("\n\n-------------------------------------------------------------");  
     let nbaPlayers = new players(playersURL,+userInput);
     nbaPlayers.findPairs();
-
-    console.log("-------------------------------------------------------------\n\n");
 
 });
 
