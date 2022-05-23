@@ -24,7 +24,8 @@ To run the project, you have 2 execute the following docker command:
 
 `docker run -i player-heights-docker`
 
-After executing the command you need to enter the data in the console, as shown in this image, and the result will appear:
+After executing the command you need to enter the data in the console, as shown in this image, and the result will appear:<br/>
+
 ![Line by Line](/documentation/linebyline.png "Line by Line")
 
 ## How to run tests and coverage of the project
