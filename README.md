@@ -14,7 +14,7 @@ Based on the criterias of performance, simplicity and elegance, the runtime envi
 >As test framework it was selected Mocha, and for assertions the chai library is being used.
 >Nyc was added to the project to get coverage of the tests, to assure full coverage of the tests.
 
-## How to build and run the project
+## How to build and run the project with Docker
 
 To build the project execute the following docker command:
 
@@ -27,6 +27,16 @@ To run the project, you have 2 execute the following docker command:
 After executing the command you need to enter the data in the console, as shown in this image, and the result will appear:<br/>
 
 ![Line by Line](/documentation/linebyline.png "Line by Line")
+
+## How to see and test the project at codesandbox.io
+
+There is a live version of the project at codesandbox.io:
+
+https://codesandbox.io/s/relaxed-hoover-v2updl?file=/app/index.js
+
+You just need to change the input in the following line;
+
+![Codesandbox.io](/documentation/codesandbox.gif "Codesandbox.io")
 
 ## How to run tests and coverage of the project
 
