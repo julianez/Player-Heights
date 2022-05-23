@@ -20,7 +20,6 @@ const consoleInput = readline.createInterface({
   
 consoleInput.on('line', userInput => {
 
-  console.log("\n\n-------------------------------------------------------------");  
     let nbaPlayers = new players(playersURL,+userInput);
     nbaPlayers.findPairs();
 

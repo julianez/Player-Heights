@@ -1,9 +1,9 @@
-const axios = require('axios');
+const request = require('./Request');
 
 /**
- * Class to handle a Stock Operation (Line Input)
- * @param  {String} userInput JSON Array
- * @return {Array} taxResponseArray JSON Array with Taxes
+ * Class to get Pairs of Players (Line Input)
+ * @param  {String} playersURL URL of players
+ * @return {Integer} expectedSum expected SUM
   */
 
 class Players {
@@ -18,25 +18,30 @@ class Players {
      * @return {taxResponseArray} Add taxes to Array
      */
     findPairs(){
-
+      console.log("-------------------------------------------------------------");  
         (async () => {
             try {
-              const response = await axios.get(this.playersURL);
+              const response = await request.get(this.playersURL);
               let playersArray1 = Array.from(response.data.values);
               let playersArray2 = Array.from(response.data.values);
-              this.matches = 0;
-           
+              this.matches = 0;           
+            
+            //First element of second array is removed each time to improve performance, prevent duplicates, and prevent pairs of same player
+
             playersArray1.forEach(playerA => {
+              playersArray2.shift(); 
               playersArray2.forEach(playerB => this.evalAndPrint(playerA,playerB))
-              playersArray2.shift();
+
             });
 
             if(this.matches===0)
               console.log("No matches found");
-          
+            
+            console.log("-----------------------------------------------------------\n\n");          
             } catch (error) {
               console.log(error.message);
             }
+            
           })();
 
     }
@@ -46,7 +51,7 @@ class Players {
      */
     evalAndPrint(playerA,playerB) {
 
-        if(((parseInt(playerA.h_in) + parseInt(playerB.h_in)) === this.expectedSum)&&((playerA.first_name !== playerB.first_name)&& (playerA.last_name !== playerB.last_name))){
+        if(((parseInt(playerA.h_in) + parseInt(playerB.h_in)) === this.expectedSum)){
           console.log("- "+playerA.first_name+" "+playerA.last_name+"\t\t\t"+playerB.first_name+" "+playerB.last_name);
           this.matches++;
         }
