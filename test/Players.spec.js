@@ -23,36 +23,67 @@ describe('Players tests', () => {
         stub.onGet("url").replyOnce(200, receivedData);
     });
 
-    it('findPairs - Expected sum 139:', async () => {
+    it('findPairs - Wrong URL', async () => {
+
+        const playersURL = "other url";
+        const expectedSum = 10;
+
+        let nbaPlayers = new players(playersURL,expectedSum);
+
+        const output = await stdout.inspectAsync(async () => {
+            await nbaPlayers.findPairs();
+        });
+
+            expect(output[0]).to.be.contains("404");
+
+    })  
+
+    it('findPairs - Expected sum 10 contains No matches found', async () => {
+
+        const playersURL = "url";
+        const expectedSum = 10;
+
+        let nbaPlayers = new players(playersURL,expectedSum);
+
+        const output = await stdout.inspectAsync(async () => {
+            await nbaPlayers.findPairs();
+        });
+
+            expect(output[0]).to.be.contains("No matches found");
+
+    })  
+
+    it('findPairs - Expected sum 139 contains Nate', async () => {
 
         const playersURL = "url";
         const expectedSum = 139;
 
         let nbaPlayers = new players(playersURL,expectedSum);
 
-        const output = stdout.inspectAsync(() => {
-            nbaPlayers.findPairs();
+        const output = await stdout.inspectAsync(async () => {
+            await nbaPlayers.findPairs();
         });
-        
-        console.log(output[0]);
 
+            expect(output[0]).to.be.contains("Nate");
 
     })  
 
-    it('findPairs - Expected sum 142:', async () => {
+    it('findPairs - Expected sum 142 contains Chucky', async () => {
 
         const playersURL = "url";
         const expectedSum = 142;
 
         let nbaPlayers = new players(playersURL,expectedSum);
 
-        const matches = await nbaPlayers.findPairs();
+        const output = await stdout.inspectAsync(async () => {
+            await nbaPlayers.findPairs();
+        });
 
-        expect(matches).to.be.equal(200);
+            expect(output[0]).to.be.contains("Chucky");
 
     })  
 
-    it('evalAndPrint:', () => {
+    it('evalAndPrint', () => {
 
         const playersURL = "url";
         const expectedSum = 142;

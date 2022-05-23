@@ -4,14 +4,11 @@
 
 Based on the criterias of performance, simplicity and elegance, the runtime environment chossen was **Node.js** .
 
-**Node.js** has built-in modules for Input Redirection and JSON handling.
+**Node.js** has built-in modules for Input, JSON handling and Axios was added to the project to get file from URL.
 
-**Docker** to assure that the application run in another machine, that doesn't have node installed, the project was dockerized.
+**Docker** to assure that the application run in another machine that doesn't have node installed, the project was dockerized.
 
 ## Frameworks / libraries
-
->### Execution
->As node.js has the required built-in modules to handle user input and json strings, there was no necessary any framework or adding extra libraries at execution time
 
 >### Testing / Coverage
 >As test framework it was selected Mocha, and for assertions the chai library is being used.
@@ -23,26 +20,12 @@ To build the project execute the following docker command:
 
 `docker build --no-cache -t player-heights-docker --target prod .`
 
-To run the project, you have 2 options:
-1. Mode: Line by line
-
-Execute the following docker command:
+To run the project, you have 2 execute the following docker command:
 
 `docker run -i player-heights-docker`
 
 After executing the command you need to enter the data in the console, as shown in this image, and the result will appear:
 ![Line by Line](/documentation/linebyline.png "Line by Line")
-
-2. Mode: Input Redirection
-
-Execute the following docker command:
-
-`docker run -i player-heights-docker < test/test.json`
-
-After executing the command the result will appear, as shown in the image:
-![Input Redirection](/documentation/inputredirection.png "Input Redirection")
-
-You can change **input file** to get other results.
 
 ## How to run tests and coverage of the project
 

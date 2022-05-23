@@ -14,12 +14,11 @@ class Players {
     }
 
     /**
-     * Get Taxes with the userInput
-     * @return {taxResponseArray} Add taxes to Array
+     * Find Pairs
+     * @return {} Show in console Pairs
      */
-    findPairs(){
-      console.log("-------------------------------------------------------------");  
-        (async () => {
+    async findPairs(){
+
             try {
               const response = await request.get(this.playersURL);
               let playersArray1 = Array.from(response.data.values);
@@ -36,13 +35,10 @@ class Players {
 
             if(this.matches===0)
               console.log("No matches found");
-            
-            console.log("-----------------------------------------------------------\n\n");          
+       
             } catch (error) {
               console.log(error.message);
             }
-            
-          })();
 
     }
 
